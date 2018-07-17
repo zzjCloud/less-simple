@@ -2,17 +2,15 @@
 ## 这是一个简单快捷的less 我们称之 simple
 
 //public font-size this want / 13.33<br />
+//创建一个字体大小函数 默认小数点为2<br />
 @fontSize:13.33;<br />
 .font-size(@size,@digit:2){<br />
 	font-size: round(@size / @fontSize,@digit) * @rem1;<br />
 }<br />
 
-//public padding and margin this size want / 26.66 <br />
-@distance:26.66;<br />
-.proportions(@name,@proportionTop,@proportionRight:@proportionTop,@proportionBottom:@proportionTop,@proportionLeft:@proportionRight,@digit:2){<br />
-	@{name}:round(@proportionTop / @distance,@digit) * @rem1 round(@proportionRight / @distance,@digit) * @rem1 round(@proportionBottom / @distance,@digit) * @rem1 round(@proportionLeft / @distance,@digit) * @rem1<br />
-}<br />
-
+//比如说 我们可以这样书写<br />
+.font-size(100,4) => font-size:7.5018rem;<br />
+.font-size(100) => font-size:7.50rem;<br />
 
 
 //public height rem<br />
@@ -20,10 +18,16 @@
 	height: @height * @rem1;<br />
 }<br />
 
+//比如说 我们可以这样书写<br />
+.height(1) => height:1rem;<br />
+
 //public line-height<br />
 .line-height(@line-height){<br />
 	line-height: @line-height * @rem1;<br />
 }<br />
+
+//比如说 我们可以这样书写<br />
+.line-height(1) => line-height:1rem;<br />
 
 //public height and line-height <br />
 .heightAndLine(@height,@line-height:@height){<br />
@@ -31,10 +35,19 @@
 	line-height: @line-height * @rem1;<br />
 }<br />
 
+//比如说 我们可以这样书写<br />
+.heightAndLine(1) => line-height:1rem;height:1rem;<br />
+.heightAndLine(2,1) => line-height:1rem;height:2rem;<br />
+
 //public text-center<br />
 .text-center{<br />
 	text-align: @center;<br />
 }<br />
+
+//比如说 我们可以这样书写<br />
+.text-center => text-align: center;<br />
+
+
 //public text-left<br />
 .text-left{<br />
 	text-align: @lf;<br />
